@@ -1146,7 +1146,6 @@ section {
     <p class="rsvp-subtitle">Nous serons heureux de vous compter parmi nous</p>
     <div class="rsvp-form" id="rsvpForm">
       <input type="text" placeholder="Votre nom complet" id="rsvpName" required>
-      <input type="number" placeholder="Nombre de personnes" id="rsvpCount" min="1" max="20">
       <textarea placeholder="Un mot pour les fiancés (optionnel)" id="rsvpMessage"></textarea>
       <button class="btn btn-filled" type="button" onclick="sendRSVP()">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
@@ -1224,7 +1223,6 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // === RSVP via WhatsApp ===
 function sendRSVP() {
   const name = document.getElementById('rsvpName').value.trim();
-  const count = document.getElementById('rsvpCount').value.trim();
   const message = document.getElementById('rsvpMessage').value.trim();
 
   if (!name) {
@@ -1234,7 +1232,6 @@ function sendRSVP() {
 
   let text = `💍 *RSVP Fiançailles Yannick & Henricia*\n\n`;
   text += `👤 Nom : ${name}\n`;
-  text += `👥 Nombre de personnes : ${count || '1'}\n`;
   if (message) {
     text += `💬 Message : ${message}\n`;
   }
